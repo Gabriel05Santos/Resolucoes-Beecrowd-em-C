@@ -1,61 +1,67 @@
+/*
+Leia 3 valores inteiros e ordene-os em ordem crescente. No final, mostre os valores em ordem 
+crescente, uma linha em branco e em seguida, os valores na sequência como foram lidos.
+
+Entrada
+A entrada contem três números inteiros.
+
+Saída
+Imprima a saída conforme foi especificado.
+*/
 #include <stdio.h>
-#include <stdlib.h>
+int main (){
 
-int swap(int *a , int *b){
-    int aux;
-    if(*a > *b){
-        return *a, *b;
-    } else if(*b > *a){
-        aux = *b;
-        *b = *a;
-        *a = aux;
-        return *a, *b;
+    int num[3];
+    
+    for(int i=0; i<3; i++){
+    scanf("%d", &num[3]);
     }
-}
-int main(){
-    int a, b, c;
-    int *A , *B, *C;
-
-    scanf("%d %d %d", &a, &b, &c);
-
-    A = malloc(sizeof(int));
-    B = malloc(sizeof(int));
-    C = malloc(sizeof(int));
-
-    if(A && B && C != NULL){
-        *A = a;
-        *B = b;
-        *C = c;
+    
+    for(int i=0; i<3; i++){
+    if(num[0] <= num[1] && num[1] <= num[2]){
+        if(num[0] >= num[2]){
+            printf("%d\n", num[0]);
+            printf("%d\n", num[2]);
+            printf("%d\n", num[1]);
+        } else if (num[0] < num[2]){
+            printf("%d\n", num[2]);
+            printf("%d\n", num[1]);
+            printf("%d\n", num[0]);
+        }
+    } else if(num[0] <= num[1] && num[1] > num[2]){
+        if(num[0] >= num[2]){
+            printf("%d\n", num[1]);
+            printf("%d\n", num[0]);
+            printf("%d\n", num[2]);
+        } else {
+            printf("%d\n", num[1]);
+            printf("%d\n", num[2]);
+            printf("%d\n", num[0]);
+        }
+    } else if(num[0] > num[1] && num[1] <= num[2]){
+        if(num[0] >= num[2]){
+            printf("%d\n", num[0]);
+            printf("%d\n", num[2]);
+            printf("%d\n", num[1]);
+        } else {
+            printf("%d\n", num[2]);
+            printf("%d'\n", num[0]);
+            printf("%d\n", num[1]);
+        }
+    } else if(num[0] > num[1] && num[1] > num[2]){
+        if(num[0] >= num[2]){
+            printf("%d\n", num[0]);
+            printf("%d\n", num[1]);
+            printf("%d\n", num[2]);
+        } else {
+            printf("%d\n", num[1]);
+            printf("%d\n", num[2]);
+            printf("%d\n", num[0]);
+        }
     }
-
-    if(a > c && b > c){
-        swap(&a, &b);
-        printf("%d\n", c);
-        printf("%d\n", b);
-        printf("%d\n", a);
-        printf("\n");
-    } else if(a > c && c > b){
-        swap(&a, &c);
-        printf("%d\n", b);
-        printf("%d\n", c);
-        printf("%d\n", a);
-        printf("\n");
-    } else if(c > a && b > a){
-        swap(&c, &b);
-        printf("%d\n", a);
-        printf("%d\n", b);
-        printf("%d\n", c);
-        printf("\n");
-    } else if(c > a && a > b){
-        swap(&c, &a);
-        printf("%d\n", b);
-        printf("%d\n", a);
-        printf("%d\n", c);
-        printf("\n");
+            printf("%d\n", num[0]);
+            printf("%d\n", num[1]);
+            printf("%d\n", num[2]);
     }
-        printf("%d\n", *A);
-        printf("%d\n", *B);
-        printf("%d\n", *C);
-
     return 0;
 }
